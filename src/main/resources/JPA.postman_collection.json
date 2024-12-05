@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "1d34910f-39fe-416d-9a68-fdac98832eec",
+		"name": "JPA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39861880"
+	},
+	"item": [
+		{
+			"name": "total employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/employees/countAllEmployees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						"countAllEmployees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "employees report to other employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/employees/reportingEmployees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						"reportingEmployees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "distinctTitles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/employees/titles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						"titles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "distinctTitles Count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/employees/titles/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						"titles",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findTitle",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/employees/findByTitle/IT Staff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						"findByTitle",
+						"IT Staff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/employees/findByTitle/IT Staff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						"findByTitle",
+						"IT Staff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hiredate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/employees/findByTitle/IT Staff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						"findByTitle",
+						"IT Staff"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
