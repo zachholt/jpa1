@@ -22,17 +22,8 @@ public class AlbumService {
         albumRepository.insertAlbum(id, title, artistId);
     }
 
-    public List<Album> getAlbumsByArtist(String artistId) {
-        return albumRepository.findByArtistid(artistId);
-    }
-
-    public Map<String, Object> getArtistWithAlbums(String artistId) {
+    public Artist getArtistWithAlbums(Integer artistId) {
         Artist artist = artistService.getArtist(artistId);
-        List<Album> albums = getAlbumsByArtist(artistId);
-        
-        Map<String, Object> result = new HashMap<>();
-        result.put("artist", artist);
-        result.put("albums", albums);
-        return result;
+        return artist;
     }
 } 

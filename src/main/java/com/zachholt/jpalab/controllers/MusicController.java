@@ -27,13 +27,11 @@ public class MusicController {
 
     @PostMapping("/albums/batch")
     public ResponseEntity<String> createAlbums() {
-        
-        artistService.createArtist("arch1", "Architects");
-        artistService.createArtist("lorn1", "Lorna Shore");
-        artistService.createArtist("mach1", "Machine Head");
-        artistService.createArtist("ocea1", "Oceans Ate Alaska");
-        artistService.createArtist("revo1", "Revocation");
-
+        artistService.createArtist(new Artist(100, "Architects"));
+        artistService.createArtist(new Artist(101, "Lorna Shore"));
+        artistService.createArtist(new Artist(102, "Machine Head"));
+        artistService.createArtist(new Artist(103, "Oceans Ate Alaska"));
+        artistService.createArtist(new Artist(104, "Revocation"));
         
         albumService.createAlbum(1, "The Classic Symptoms of a Broken Spirit", "arch1");
         albumService.createAlbum(2, "Pain Remains", "lorn1");
@@ -50,13 +48,13 @@ public class MusicController {
     }
 
     @GetMapping("/artists/{artistId}")
-    public ResponseEntity<Map<String, Object>> getArtistWithAlbums(@PathVariable String artistId) {
+    public ResponseEntity<Artist> getArtistWithAlbums(@PathVariable Integer artistId) {
         return ResponseEntity.ok(albumService.getArtistWithAlbums(artistId));
     }
 
     @PostMapping("/artists")
-    public ResponseEntity<Artist> createArtist(@RequestBody Map<String, String> artistData) {
-        return ResponseEntity.ok(artistService.createArtist(artistData.get("id"), artistData.get("name")));
+    public ResponseEntity<Artist> createArtist(@RequestBody Artist artistData) {
+        return ResponseEntity.ok(artistService.createArtist(artistData));
     }
 
     @PostMapping("/artists/{artistId}/albums")
