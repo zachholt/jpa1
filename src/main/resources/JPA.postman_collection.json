@@ -1,168 +1,415 @@
 {
 	"info": {
-		"_postman_id": "1d34910f-39fe-416d-9a68-fdac98832eec",
+		"_postman_id": "d1154299-e292-4669-9379-4b80cd7461c9",
 		"name": "JPA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "39861880"
 	},
 	"item": [
 		{
-			"name": "total employees",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8081/api/v1/employees/countAllEmployees",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"api",
-						"v1",
-						"employees",
-						"countAllEmployees"
-					]
+			"name": "Employee Operations",
+			"item": [
+				{
+					"name": "Get Employee Count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/employees/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reporting Employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/employees/reporting",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"reporting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Distinct Titles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/employees/titles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"titles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Distinct Titles Count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/employees/distinctTitles/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"distinctTitles",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get IT Staff",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/employees/it-staff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"it-staff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get IT Staff in Lethbridge",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/employees/it-staff/lethbridge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"it-staff",
+								"lethbridge"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Youngest Employee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/employees/youngest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"youngest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Mitchell's Name",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/employees/mitchell",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"mitchell"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Puja",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/employees/puja",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"puja"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employees Hired After Date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/employees/hired?date=2003-10-17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"hired"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2003-10-17"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employees Hired Between Dates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/employees/hired/between?startDate=2002-01-10&endDate=2003-01-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"employees",
+								"hired",
+								"between"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2002-01-10"
+								},
+								{
+									"key": "endDate",
+									"value": "2003-01-01"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "employees report to other employees",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8081/api/v1/employees/reportingEmployees",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"api",
-						"v1",
-						"employees",
-						"reportingEmployees"
-					]
+			"name": "Music Operations",
+			"item": [
+				{
+					"name": "Create Albums",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/music/albums/batch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"music",
+								"albums",
+								"batch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tracks by Genre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/music/tracks/genre/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"music",
+								"tracks",
+								"genre",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Artist with Albums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/music/artists/arch1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"music",
+								"artists",
+								"arch1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Artist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"test1\",\n    \"name\": \"Test Artist\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/music/artists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"music",
+								"artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Album to Artist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"6\",\n    \"title\": \"Test Album\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/music/artists/test1/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"music",
+								"artists",
+								"test1",
+								"albums"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "distinctTitles",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8081/api/v1/employees/titles",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"api",
-						"v1",
-						"employees",
-						"titles"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "distinctTitles Count",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8081/api/v1/employees/titles/count",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"api",
-						"v1",
-						"employees",
-						"titles",
-						"count"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "findTitle",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8081/api/v1/employees/findByTitle/IT Staff",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"api",
-						"v1",
-						"employees",
-						"findByTitle",
-						"IT Staff"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "search",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8081/api/v1/employees/findByTitle/IT Staff",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"api",
-						"v1",
-						"employees",
-						"findByTitle",
-						"IT Staff"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "hiredate",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8081/api/v1/employees/findByTitle/IT Staff",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"api",
-						"v1",
-						"employees",
-						"findByTitle",
-						"IT Staff"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }

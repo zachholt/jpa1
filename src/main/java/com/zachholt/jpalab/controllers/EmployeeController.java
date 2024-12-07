@@ -3,11 +3,7 @@ package com.zachholt.jpalab.controllers;
 import com.zachholt.jpalab.models.Employee;
 import com.zachholt.jpalab.services.EmployeeService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,70 +11,69 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/employees")
 public class EmployeeController {
-
     private final EmployeeService employeeService;
 
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
-    @GetMapping("/countAllEmployees")
-    public ResponseEntity<Long> countAllEmployees() {
+    @GetMapping("/count")
+    public ResponseEntity<Long> getEmployeeCount() {
         return ResponseEntity.ok(employeeService.getEmployeeCount());
     }
 
-    @GetMapping("/reportingEmployees")
-    public ResponseEntity<Long> getEmployeeReport() {
+    @GetMapping("/reporting")
+    public ResponseEntity<Long> getReportingEmployees() {
         return ResponseEntity.ok(employeeService.getEmployeeReport());
     }
 
-    @GetMapping("/titles")
+    @GetMapping("/distinctTitles")
     public ResponseEntity<List<String>> getDistinctTitles() {
         return ResponseEntity.ok(employeeService.getDistinctTitles());
     }
 
-    @GetMapping("/titles/count")
+    @GetMapping("/distinctTitles/count")
     public ResponseEntity<Long> getDistinctTitlesCount() {
         return ResponseEntity.ok(employeeService.getDistinctTitlesCount());
     }
 
-    @GetMapping("/findByFirstName/{firstName}")
-    public ResponseEntity<List<Employee>> getEmployeeByFirstName(@PathVariable String firstName) {
-        return ResponseEntity.ok(employeeService.getFirstByFirstName(firstName));
+    @GetMapping("/hired")
+    public ResponseEntity<Long> getEmployeesHiredAfterDate(@RequestParam String date) {
+        return ResponseEntity.ok(employeeService.countEmployeesHiredAfterDate(LocalDate.parse(date)));
     }
 
-    @GetMapping("/findByTitle/{title}")
-    public ResponseEntity<List<Employee>> findEmployeesByTitle(@PathVariable String title) {
-        return ResponseEntity.ok(employeeService.findEmployeesByTitle(title));
+    @GetMapping("/hired/between")
+    public ResponseEntity<Long> getEmployeesHiredBetweenDates(@RequestParam String startDate, 
+                                             @RequestParam String endDate) {
+        return ResponseEntity.ok(employeeService.countEmployeesHiredBetweenDates(
+            LocalDate.parse(startDate), 
+            LocalDate.parse(endDate)
+        ));
     }
 
-    @GetMapping("/search")
-    public ResponseEntity<List<Employee>> findByTitleAndCityAndPostalCodeContaining(
-            @RequestParam String title,
-            @RequestParam String city,
-            @RequestParam String postalCode) {
-        return ResponseEntity.ok(
-            employeeService.findByTitleAndCityAndPostalCodeContaining(title, city, postalCode)
-        );
+    @GetMapping("/it-staff")
+    public ResponseEntity<List<Employee>> getITStaff() {
+        return ResponseEntity.ok(employeeService.findEmployeesByTitle("IT Staff"));
     }
 
-    @GetMapping("/countHiredAfter/{date}")
-    public ResponseEntity<Long> countEmployeesHiredAfterDate(@PathVariable String date) {
-        LocalDate hireDate = LocalDate.parse(date);
-        return ResponseEntity.ok(employeeService.countEmployeesHiredAfterDate(hireDate));
-    }
-
-    @GetMapping("/countHiredBetween")
-    public ResponseEntity<Long> countEmployeesHiredBetweenDates(
-            @RequestParam String startDate,
-            @RequestParam String endDate) {
-        LocalDate start = LocalDate.parse(startDate);
-        LocalDate end = LocalDate.parse(endDate);
-        return ResponseEntity.ok(employeeService.countEmployeesHiredBetweenDates(start, end));
+    @GetMapping("/it-staff/lethbridge")
+    public ResponseEntity<List<Employee>> getITStaffInLethbridge() {
+        return ResponseEntity.ok(employeeService.findByTitleAndCityAndPostalCodeContaining("IT Staff", "Lethbridge", "T1H"));
     }
 
     @GetMapping("/youngest")
-    public ResponseEntity<Employee> findYoungestEmployee() {
+    public ResponseEntity<Employee> getYoungestEmployee() {
         return ResponseEntity.ok(employeeService.findYoungestEmployee());
+    }
+
+    @PutMapping("/mitchell")
+    public ResponseEntity<Employee> updateMitchellName() {
+        return ResponseEntity.ok(employeeService.updateName(1, "Mitchell Micheal"));
+    }
+
+    @DeleteMapping("/puja")
+    public ResponseEntity<String> deletePuja() {
+        employeeService.deleteEmployee(2);
+        return ResponseEntity.ok("Employee deleted successfully");
     }
 }

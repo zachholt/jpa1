@@ -5,7 +5,6 @@ import com.zachholt.jpalab.repos.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.time.LocalDate;
 
 @Service
@@ -29,11 +28,7 @@ public class EmployeeService {
     }
 
     public List<String> getDistinctTitles() {
-        return employeeRepository.findDistinctByTitleIsNotNull().stream()
-                .map(Employee::getTitle)
-                .distinct()
-                .sorted()
-                .collect(Collectors.toList());
+        return employeeRepository.findDistinctTitles();
     }
 
     public long getDistinctTitlesCount() {
@@ -62,5 +57,16 @@ public class EmployeeService {
 
     public Employee findYoungestEmployee() {
         return employeeRepository.findFirstByOrderByBirthDateDesc();
+    }
+
+    public Employee updateName(Integer id, String newName) {
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Employee not found"));
+        employee.setFirstName(newName);
+        return employeeRepository.save(employee);
+    }
+
+    public void deleteEmployee(Integer id) {
+        employeeRepository.deleteById(id);
     }
 }
