@@ -27,14 +27,14 @@ public class MusicController {
 
     @PostMapping("/albums/batch")
     public ResponseEntity<String> createAlbums() {
-        // Create artists
+        
         artistService.createArtist("arch1", "Architects");
         artistService.createArtist("lorn1", "Lorna Shore");
         artistService.createArtist("mach1", "Machine Head");
         artistService.createArtist("ocea1", "Oceans Ate Alaska");
         artistService.createArtist("revo1", "Revocation");
 
-        // Create albums
+        
         albumService.createAlbum(1, "The Classic Symptoms of a Broken Spirit", "arch1");
         albumService.createAlbum(2, "Pain Remains", "lorn1");
         albumService.createAlbum(3, "Of Kingdom and Crown", "mach1");
